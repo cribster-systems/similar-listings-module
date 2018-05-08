@@ -1,0 +1,687 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SimilarListings component renders similar listings correctly renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SimilarListings
+    currentListingId={1}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1
+          className="undefined undefined "
+        >
+          Similar listings
+        </h1>,
+        <Slider
+          afterChange={[Function]}
+          arrows={true}
+          infinite={false}
+          nextArrow={
+            <NextArrow
+              currentIndex={0}
+              maxLength={3}
+            />
+          }
+          prevArrow={
+            <PrevArrow
+              currentIndex={0}
+            />
+          }
+          slidesToScroll={1}
+          slidesToShow={3}
+        >
+          <Listing
+            data={
+              Object {
+                "__v": 0,
+                "avg_rating": 4.78,
+                "description": "ENTIRE HOUSE 1 BED",
+                "id": 1,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/1.jpg",
+                "keywords": Array [
+                  "animated",
+                  "happy",
+                  "home",
+                ],
+                "num_reviews": 96,
+                "price": 45,
+                "title": "124 Conch Street",
+              }
+            }
+            index={0}
+          />
+          <Listing
+            data={
+              Object {
+                "__v": 0,
+                "avg_rating": 3.29,
+                "description": "ENTIRE APARTMENT 1 BED",
+                "id": 2,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/2.jpg",
+                "keywords": Array [
+                  "home",
+                  "real",
+                ],
+                "num_reviews": 47,
+                "price": 199,
+                "title": "221b Baker Street",
+              }
+            }
+            index={1}
+          />
+          <Listing
+            data={
+              Object {
+                "__v": 0,
+                "avg_rating": 2.35,
+                "description": "ENTIRE HOUSE 3 BEDS",
+                "id": 4,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/4.jpg",
+                "keywords": Array [
+                  "home",
+                  "animated",
+                ],
+                "num_reviews": 28,
+                "price": 125,
+                "title": "742 Evergreen Terrace",
+              }
+            }
+            index={2}
+          />
+          <Listing
+            data={
+              Object {
+                "__v": 0,
+                "avg_rating": 4.82,
+                "description": "ENTIRE HOUSE 4 BEDS",
+                "id": 3,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/3.jpg",
+                "keywords": Array [
+                  "home",
+                  "animated",
+                ],
+                "num_reviews": 64,
+                "price": 120,
+                "title": "31 Spooner Street",
+              }
+            }
+            index={3}
+          />
+        </Slider>,
+      ],
+      "className": undefined,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Similar listings",
+          "className": "undefined undefined ",
+        },
+        "ref": null,
+        "rendered": "Similar listings",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "afterChange": [Function],
+          "arrows": true,
+          "children": Array [
+            <Listing
+              data={
+                Object {
+                  "__v": 0,
+                  "avg_rating": 4.78,
+                  "description": "ENTIRE HOUSE 1 BED",
+                  "id": 1,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/1.jpg",
+                  "keywords": Array [
+                    "animated",
+                    "happy",
+                    "home",
+                  ],
+                  "num_reviews": 96,
+                  "price": 45,
+                  "title": "124 Conch Street",
+                }
+              }
+              index={0}
+            />,
+            <Listing
+              data={
+                Object {
+                  "__v": 0,
+                  "avg_rating": 3.29,
+                  "description": "ENTIRE APARTMENT 1 BED",
+                  "id": 2,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/2.jpg",
+                  "keywords": Array [
+                    "home",
+                    "real",
+                  ],
+                  "num_reviews": 47,
+                  "price": 199,
+                  "title": "221b Baker Street",
+                }
+              }
+              index={1}
+            />,
+            <Listing
+              data={
+                Object {
+                  "__v": 0,
+                  "avg_rating": 2.35,
+                  "description": "ENTIRE HOUSE 3 BEDS",
+                  "id": 4,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/4.jpg",
+                  "keywords": Array [
+                    "home",
+                    "animated",
+                  ],
+                  "num_reviews": 28,
+                  "price": 125,
+                  "title": "742 Evergreen Terrace",
+                }
+              }
+              index={2}
+            />,
+            <Listing
+              data={
+                Object {
+                  "__v": 0,
+                  "avg_rating": 4.82,
+                  "description": "ENTIRE HOUSE 4 BEDS",
+                  "id": 3,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/3.jpg",
+                  "keywords": Array [
+                    "home",
+                    "animated",
+                  ],
+                  "num_reviews": 64,
+                  "price": 120,
+                  "title": "31 Spooner Street",
+                }
+              }
+              index={3}
+            />,
+          ],
+          "infinite": false,
+          "nextArrow": <NextArrow
+            currentIndex={0}
+            maxLength={3}
+          />,
+          "prevArrow": <PrevArrow
+            currentIndex={0}
+          />,
+          "slidesToScroll": 1,
+          "slidesToShow": 3,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "class",
+            "props": Object {
+              "data": Object {
+                "__v": 0,
+                "avg_rating": 4.78,
+                "description": "ENTIRE HOUSE 1 BED",
+                "id": 1,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/1.jpg",
+                "keywords": Array [
+                  "animated",
+                  "happy",
+                  "home",
+                ],
+                "num_reviews": 96,
+                "price": 45,
+                "title": "124 Conch Street",
+              },
+              "index": 0,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "class",
+            "props": Object {
+              "data": Object {
+                "__v": 0,
+                "avg_rating": 3.29,
+                "description": "ENTIRE APARTMENT 1 BED",
+                "id": 2,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/2.jpg",
+                "keywords": Array [
+                  "home",
+                  "real",
+                ],
+                "num_reviews": 47,
+                "price": 199,
+                "title": "221b Baker Street",
+              },
+              "index": 1,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "2",
+            "nodeType": "class",
+            "props": Object {
+              "data": Object {
+                "__v": 0,
+                "avg_rating": 2.35,
+                "description": "ENTIRE HOUSE 3 BEDS",
+                "id": 4,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/4.jpg",
+                "keywords": Array [
+                  "home",
+                  "animated",
+                ],
+                "num_reviews": 28,
+                "price": 125,
+                "title": "742 Evergreen Terrace",
+              },
+              "index": 2,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "3",
+            "nodeType": "class",
+            "props": Object {
+              "data": Object {
+                "__v": 0,
+                "avg_rating": 4.82,
+                "description": "ENTIRE HOUSE 4 BEDS",
+                "id": 3,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/3.jpg",
+                "keywords": Array [
+                  "home",
+                  "animated",
+                ],
+                "num_reviews": 64,
+                "price": 120,
+                "title": "31 Spooner Street",
+              },
+              "index": 3,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1
+            className="undefined undefined "
+          >
+            Similar listings
+          </h1>,
+          <Slider
+            afterChange={[Function]}
+            arrows={true}
+            infinite={false}
+            nextArrow={
+              <NextArrow
+                currentIndex={0}
+                maxLength={3}
+              />
+            }
+            prevArrow={
+              <PrevArrow
+                currentIndex={0}
+              />
+            }
+            slidesToScroll={1}
+            slidesToShow={3}
+          >
+            <Listing
+              data={
+                Object {
+                  "__v": 0,
+                  "avg_rating": 4.78,
+                  "description": "ENTIRE HOUSE 1 BED",
+                  "id": 1,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/1.jpg",
+                  "keywords": Array [
+                    "animated",
+                    "happy",
+                    "home",
+                  ],
+                  "num_reviews": 96,
+                  "price": 45,
+                  "title": "124 Conch Street",
+                }
+              }
+              index={0}
+            />
+            <Listing
+              data={
+                Object {
+                  "__v": 0,
+                  "avg_rating": 3.29,
+                  "description": "ENTIRE APARTMENT 1 BED",
+                  "id": 2,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/2.jpg",
+                  "keywords": Array [
+                    "home",
+                    "real",
+                  ],
+                  "num_reviews": 47,
+                  "price": 199,
+                  "title": "221b Baker Street",
+                }
+              }
+              index={1}
+            />
+            <Listing
+              data={
+                Object {
+                  "__v": 0,
+                  "avg_rating": 2.35,
+                  "description": "ENTIRE HOUSE 3 BEDS",
+                  "id": 4,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/4.jpg",
+                  "keywords": Array [
+                    "home",
+                    "animated",
+                  ],
+                  "num_reviews": 28,
+                  "price": 125,
+                  "title": "742 Evergreen Terrace",
+                }
+              }
+              index={2}
+            />
+            <Listing
+              data={
+                Object {
+                  "__v": 0,
+                  "avg_rating": 4.82,
+                  "description": "ENTIRE HOUSE 4 BEDS",
+                  "id": 3,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/3.jpg",
+                  "keywords": Array [
+                    "home",
+                    "animated",
+                  ],
+                  "num_reviews": 64,
+                  "price": 120,
+                  "title": "31 Spooner Street",
+                }
+              }
+              index={3}
+            />
+          </Slider>,
+        ],
+        "className": undefined,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Similar listings",
+            "className": "undefined undefined ",
+          },
+          "ref": null,
+          "rendered": "Similar listings",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "afterChange": [Function],
+            "arrows": true,
+            "children": Array [
+              <Listing
+                data={
+                  Object {
+                    "__v": 0,
+                    "avg_rating": 4.78,
+                    "description": "ENTIRE HOUSE 1 BED",
+                    "id": 1,
+                    "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/1.jpg",
+                    "keywords": Array [
+                      "animated",
+                      "happy",
+                      "home",
+                    ],
+                    "num_reviews": 96,
+                    "price": 45,
+                    "title": "124 Conch Street",
+                  }
+                }
+                index={0}
+              />,
+              <Listing
+                data={
+                  Object {
+                    "__v": 0,
+                    "avg_rating": 3.29,
+                    "description": "ENTIRE APARTMENT 1 BED",
+                    "id": 2,
+                    "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/2.jpg",
+                    "keywords": Array [
+                      "home",
+                      "real",
+                    ],
+                    "num_reviews": 47,
+                    "price": 199,
+                    "title": "221b Baker Street",
+                  }
+                }
+                index={1}
+              />,
+              <Listing
+                data={
+                  Object {
+                    "__v": 0,
+                    "avg_rating": 2.35,
+                    "description": "ENTIRE HOUSE 3 BEDS",
+                    "id": 4,
+                    "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/4.jpg",
+                    "keywords": Array [
+                      "home",
+                      "animated",
+                    ],
+                    "num_reviews": 28,
+                    "price": 125,
+                    "title": "742 Evergreen Terrace",
+                  }
+                }
+                index={2}
+              />,
+              <Listing
+                data={
+                  Object {
+                    "__v": 0,
+                    "avg_rating": 4.82,
+                    "description": "ENTIRE HOUSE 4 BEDS",
+                    "id": 3,
+                    "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/3.jpg",
+                    "keywords": Array [
+                      "home",
+                      "animated",
+                    ],
+                    "num_reviews": 64,
+                    "price": 120,
+                    "title": "31 Spooner Street",
+                  }
+                }
+                index={3}
+              />,
+            ],
+            "infinite": false,
+            "nextArrow": <NextArrow
+              currentIndex={0}
+              maxLength={3}
+            />,
+            "prevArrow": <PrevArrow
+              currentIndex={0}
+            />,
+            "slidesToScroll": 1,
+            "slidesToShow": 3,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "0",
+              "nodeType": "class",
+              "props": Object {
+                "data": Object {
+                  "__v": 0,
+                  "avg_rating": 4.78,
+                  "description": "ENTIRE HOUSE 1 BED",
+                  "id": 1,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/1.jpg",
+                  "keywords": Array [
+                    "animated",
+                    "happy",
+                    "home",
+                  ],
+                  "num_reviews": 96,
+                  "price": 45,
+                  "title": "124 Conch Street",
+                },
+                "index": 0,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "class",
+              "props": Object {
+                "data": Object {
+                  "__v": 0,
+                  "avg_rating": 3.29,
+                  "description": "ENTIRE APARTMENT 1 BED",
+                  "id": 2,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/2.jpg",
+                  "keywords": Array [
+                    "home",
+                    "real",
+                  ],
+                  "num_reviews": 47,
+                  "price": 199,
+                  "title": "221b Baker Street",
+                },
+                "index": 1,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "2",
+              "nodeType": "class",
+              "props": Object {
+                "data": Object {
+                  "__v": 0,
+                  "avg_rating": 2.35,
+                  "description": "ENTIRE HOUSE 3 BEDS",
+                  "id": 4,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/4.jpg",
+                  "keywords": Array [
+                    "home",
+                    "animated",
+                  ],
+                  "num_reviews": 28,
+                  "price": 125,
+                  "title": "742 Evergreen Terrace",
+                },
+                "index": 2,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "3",
+              "nodeType": "class",
+              "props": Object {
+                "data": Object {
+                  "__v": 0,
+                  "avg_rating": 4.82,
+                  "description": "ENTIRE HOUSE 4 BEDS",
+                  "id": 3,
+                  "imageUrl": "https://s3.us-east-2.amazonaws.com/fantasybnb/images/3.jpg",
+                  "keywords": Array [
+                    "home",
+                    "animated",
+                  ],
+                  "num_reviews": 64,
+                  "price": 120,
+                  "title": "31 Spooner Street",
+                },
+                "index": 3,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

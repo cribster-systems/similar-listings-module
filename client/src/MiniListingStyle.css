@@ -1,0 +1,90 @@
+.font {
+  font-family: 'Cabin', sans-serif;
+  letter-spacing: 0.5px;
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Open Sans', sans-serif; */
+}
+
+.miniListing {
+  padding: 22px 0px;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 0 20px #ababab;
+  width: 100%;
+}
+
+
+.listText {
+  padding-left: 145px;
+  
+}
+
+
+.title {
+  composes: font;
+  font-size: 19px;
+  font-weight: 400;
+  color: #484848;
+  padding-bottom: 10px;
+
+}
+
+.description{
+  composes: font;
+  font-size: 15px;
+  font-weight: 100;
+  letter-spacing: 0.2px;
+  color: #484848;
+  padding-bottom: 10px;
+}
+
+
+.image {
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 104px;
+  float: left;
+  margin-left: 24px;
+}
+
+
+.rating {
+}
+
+.price {
+  composes: font;
+  color: #484848;
+  font-size: 15px;
+  line-height: 22px;
+  margin: 0px;
+
+}
+
+.gray {
+  color:#D3D3D3;
+}
+
+.teal {
+  color: #008489;
+
+}
+
+.stars {
+  font-size: 9px;
+}
+
+.numReviews {
+  font-size: 15px;
+  margin-left: 3px;
+  font-weight: 100;
+  letter-spacing: 0.5px;
+  line-height: 27px;
+}
+
+.listings {
+  padding: 0px 50px;
+  height: 304px;
+  width: 1000px;
+  position: relative;
+}
