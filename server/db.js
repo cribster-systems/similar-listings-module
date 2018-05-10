@@ -39,7 +39,7 @@ const save = (listingObj, callback) => {
 const getSimilarListings = (id, callback) => {
   let query = {};
   query['id'] = id;
-  Listing.findOne(query)
+  Listing.findOne(query, 'similarListings')
   .then((listing) => {
     let ids = listing.similarListings;
     return Listing.find({ id: {$in: ids} })
