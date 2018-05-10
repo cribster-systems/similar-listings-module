@@ -18,6 +18,11 @@ const buildFile = async () => {
 	}
 }
 
+const precisionRound = (number, precision) => {
+  var factor = Math.pow(10, precision);
+  return Math.round(number * factor) / factor;
+}
+
 const buildAndAppendBatch = (batchNum) => {
 	return new Promise((resolve, reject) => {
 		let batch = [];
@@ -25,18 +30,24 @@ const buildAndAppendBatch = (batchNum) => {
 			let newObj = {};
 			newObj['id'] = batchNum * BATCH_SIZE + j;
 			let randomImageNumber = Math.floor(Math.random() * 100) + 1;
-			newObj['imageUrl'] = `https://s3.us-east-1.amazonaws.com/starkillersystems/images/${randomImageNumber}.jpg`
+			newObj['imageUrl'] = `https://s3.us-east-1.amazonaws.com/starkillersystems/images/${randomImageNumber}.jpg`;
 			newObj['description'] = faker.company.catchPhraseDescriptor();
 			newObj['title'] = faker.address.streetAddress();
 			newObj['price'] = Math.floor(priceGaussian.ppf(Math.random()));
 			newObj['num_reviews'] = Math.floor(Math.random() * 50);
-			newObj['avg_rating'] = Math.min(ratingsGaussian.ppf(Math.random()), 5);
+			newObj['avg_rating'] = precisionRound(Math.min(ratingsGaussian.ppf(Math.random()), 5), 2);
 			let numberKeywords = Math.floor(Math.random() * 5);
 			let keywords = [];
 			for (let i = 0; i < numberKeywords; i++) {
 				keywords.push(faker.company.catchPhraseAdjective());
 			}
 			newObj['keywords'] = keywords;
+			newObj['bedrooms'] = Math.floor(Math.random() * 5) + 1;
+			let similarListings = [];
+			for (let i = 0; i < 12; i++) {
+				similarListings.push(Math.floor(Math.random() * 10000000));
+			}
+			newObj['similarListings'] = similarListings;
 			let stringObj = JSON.stringify(newObj);
 			batch.push(stringObj);
 		}
