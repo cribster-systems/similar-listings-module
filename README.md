@@ -1,39 +1,30 @@
-# Project Name
+# Cribster: similar listings service
 
 > Project description
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+  - https://github.com/cribster-systems/images-service
+  - https://github.com/cribster-systems/booking-service-module
+  - https://github.com/cribster-systems/reviews-service-module
 
 ## Development
+For this project, I scaled the backend of a microservice for a housing rental platform after inheriting a legacy codebase. To simulate production scale, 10 million records were added to the database.
 
-### Installing Dependencies
+Stress Testing (local machine) using Artillery:
 
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
+Configuration file:
 ```
-
+config:
+ target: "http://localhost:3000/reviews"
+ phases:
+   - duration: 20
+     arrivalRate: 20
+scenarios:
+ - name: "Browsing"
+   flow:
+   - loop:
+     - get:
+         url: "/{{ $loopCount }}?index=1"
+         count: 5
+```
