@@ -21,7 +21,7 @@ config:
    - duration: 20
      arrivalRate: 20
 scenarios:
- - name: "Browsing"
+ - name: "Similarlistings"
    flow:
    - loop:
      - get:
