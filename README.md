@@ -16,15 +16,14 @@ Stress Testing (local machine) using Artillery:
 Configuration file:
 ```
 config:
- target: "http://localhost:3000/reviews"
- phases:
-   - duration: 20
-     arrivalRate: 20
+  target: 'http://localhost:3333'
+  phases:
+    - duration: 20
+      arrivalRate: 20
 scenarios:
- - name: "Similarlistings"
-   flow:
-   - loop:
-     - get:
-         url: "/{{ $loopCount }}?index=1"
-         count: 5
+  - flow:
+    - loop:
+      - get:
+          url: "/rooms/{{ $loopCount }}/similar_listings"
+          count: 5
 ```
