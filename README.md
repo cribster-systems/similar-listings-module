@@ -40,6 +40,12 @@ Results after implementing Node cluster:
 
 After observing the superior performance of the denormalized schema with respect to read operations, that schema was implemented and a Docker image was built.
 
-### Initial Deployment on AWS
+### Deployment on AWS
 
-The initial production architecture for the microservice consisted of three AWS t2.micro (1 vCPU, 2.5 GHz, Intel Xeon Family, 1 GiB RAM) instances: a Redis caching server, a MongoDB server and an App server running my Docker image.
+The initial production architecture for the microservice consisted of three AWS t2.micro (1 vCPU, 2.5 GHz, Intel Xeon Family, 1 GiB RAM) instances: a Redis caching server, a MongoDB database server and an App server running my Docker image. A t2.micro instance is less powerful than my local machine so, as expected, the first round of in production Artillery stress tests yielded worse metrics than those obtained from testing locally.
+
+Initial production architecture performance:
+1. RPS: XXXX
+1. Latency: XXXX
+
+One option to improve performance would be to vertically scale and run my three components on machines that are as powerful, or more powerful than my local machine. Vertical scaling on AWS is as easy as selecting a more powerful instance. Instead, I decided to first horizontally scale my App server. As opposed to selecting a more powerful machine with vertical scaling, horizontal scaling is equivalent to adding more machines. 
