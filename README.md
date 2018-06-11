@@ -38,4 +38,8 @@ Results after implementing Node cluster:
 1. Normalized schema: 1815 rps, 46.7ms median latency
 1. Denormalized schema: 2388 rps, 24ms median latency
 
-After observing the superior performance of the denormalized schema with respect to read operations, that schema was implemented and a docker image was built.
+After observing the superior performance of the denormalized schema with respect to read operations, that schema was implemented and a Docker image was built.
+
+### Initial Deployment on AWS
+
+The initial production architecture for the microservice consisted of three AWS t2.micro (1 vCPU, 2.5 GHz, Intel Xeon Family, 1 GiB RAM) instances: a Redis caching server, a MongoDB server and an App server running my Docker image.
