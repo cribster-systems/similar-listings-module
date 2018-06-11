@@ -12,8 +12,6 @@
 For this project, I scaled the backend of a microservice for a housing rental platform after inheriting a legacy codebase. To simulate production scale, 10 million records were added to the database.
 
 Stress Testing (local machine) using Artillery:
-
-Configuration file:
 ```
 config:
   target: 'http://localhost:3333'
