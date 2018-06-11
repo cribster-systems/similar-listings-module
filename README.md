@@ -50,7 +50,7 @@ Initial production architecture performance:
 
 One option to improve performance would be to vertically scale and run my three components on machines that are as powerful, or more powerful than my local machine. Vertical scaling on AWS is as easy as selecting a more powerful instance. Instead, I decided to first horizontally scale my App server. As opposed to selecting a more powerful machine with vertical scaling, horizontal scaling is equivalent to adding more machines.
 
-## Horizontal Scaling of App Server
+## Horizontally Scaling App Server
 
 I chose to horizontally scale my App server with AWS auto scaling. With auto scaling you can specify a particular metric related to the usage and health of your service, such as average CPU utilization, and if a threshold for that metric is exceeded additional containers will be spun up to help assist with the workload. Conversely, if the value for that metric dips below a certain threshold, containers will be wound down. Auto scaling allows you to use only the resouces that your service requires at that time and is especially cost effective compared to a deployment of a static number of instances if the traffic to that service is highly variable. At any given time my service was running between 5 and 15 containers and these bounds were fine-tuned after observering metrics from Amazon Cloudwatch.
 
