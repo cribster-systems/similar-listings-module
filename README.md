@@ -38,7 +38,7 @@ Initial results:
 
 Results after implementing Node cluster:
 1. Normalized schema: 1815 rps, 46.7ms median latency
-1. Denormalized schema: 2388 rps, 24ms median latency
+1. Denormalized schema: 2388 rps, 24.0ms median latency
 
 After observing the superior performance of the denormalized schema with respect to read operations, that schema was implemented and a Docker image was built.
 
@@ -47,7 +47,7 @@ After observing the superior performance of the denormalized schema with respect
 The initial production architecture for the microservice consisted of three AWS t2.micro (1 vCPU, 2.5 GHz, Intel Xeon Family, 1 GiB RAM) instances: a Redis caching server, a MongoDB database server and an App server running my Docker image. A t2.micro instance is less powerful than my local machine so, as expected, the first round of in production Artillery stress tests yielded worse metrics than those obtained from testing locally.
 
 Initial production architecture performance:
-1. RPS: 250.45
+1. RPS: 250
 1. Latency: 1190.5ms
 
 One option to improve performance would be to vertically scale and run my three components on machines that are as powerful, or more powerful than my local machine. Vertical scaling on AWS is as easy as selecting a more powerful instance. Instead, I decided to first horizontally scale my App server. As opposed to selecting a more powerful machine with vertical scaling, horizontal scaling is equivalent to adding more machines.
@@ -60,11 +60,11 @@ Performance after horizontally scaling App server:
 
 | Number of Containers Running | Requests Per Second | Latency (ms) |
 | ---------------------------- | ------------------- | ------------ |
-| 1                            | 250.45              | 1190.5       |                  
-| 5                            | 1171.97             | 388.0        |
-| 10                           | 1972.42             | 169.1        |
-| 15                           | 2308.94             | 143.6        |
-| 20                           | 2357.27             | 123.7        |
+| 1                            | 250                 | 1190.5       |                  
+| 5                            | 1171                | 388.0        |
+| 10                           | 1972                | 169.1        |
+| 15                           | 2308                | 143.6        |
+| 20                           | 2357                | 123.7        |
 
 ## Database Sharding
 
