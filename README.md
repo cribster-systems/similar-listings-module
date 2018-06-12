@@ -9,7 +9,7 @@
   - https://github.com/cribster-systems/reviews-service-module
 
 # Development
-For this project, I scaled the backend of the similar listings microservice for a housing rental platform after inheriting a legacy codebase. To simulate production scale, 10 million records were added to the database.
+For this project, I scaled the backend of the similar listings microservice for a housing rental platform after inheriting a legacy codebase. To simulate production scale, 10 million listings were added to the database.
 
 ## Microservice Architecture and Database Schema Design
 First, any computations to determine similar listings for a given listing were decoupled from the retrieval of similar listings and moved to a separate recommendation service that operates as a batch process.
