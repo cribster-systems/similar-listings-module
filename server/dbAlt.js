@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://34.207.143.40:27017/similarlistingsalt');
+mongoose.connect('mongodb://52.90.94.142:27017/similarlistingsalt');
 
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   // we're connected!
-  console.log('we are connected to similarlistings!');
+  console.log('we are connected to similarlistingsalt!');
 });
 
 let listingSchema = mongoose.Schema({
@@ -20,7 +20,16 @@ let listingSchema = mongoose.Schema({
   avg_rating: Number,
   keywords: [String],
   bedrooms: Number,
-  similarListings: [Number]
+  similarListings: [{locationId: Number,
+                      imageUrl: String,
+                      description: String,
+                      title: String,
+                      price: Number,
+                      num_reviews: Number,
+                      avg_rating: Number,
+                      keywords: [String],
+                      bedrooms: Number 
+                    }]
 });
 
 const Listing = mongoose.model('Listing', listingSchema);
@@ -40,8 +49,7 @@ const getSimilarListings = (id, callback) => {
   query['locationId'] = id;
   Listing.findOne(query, 'similarListings')
   .then((listing) => {
-    let ids = listing.similarListings;
-    return Listing.find({ locationId: {$in: ids} })
+    return listing.similarListings;
   })
   .then((listings) => {
     callback(null, listings);

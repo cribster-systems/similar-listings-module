@@ -8,6 +8,8 @@ COPY . /final/app
 
 RUN npm install
 
+ENV NODE_ENV=production
+
 EXPOSE 3333
 
 CMD [ "npm", "start"]

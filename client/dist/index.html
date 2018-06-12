@@ -16,10 +16,10 @@
 <script type="text/javascript" src="bundle.js"></script>
 <script>
   // ReactDOM.render(<SimilarListings currentListingId={50}/>, document.getElementById('similarListing'));
-  // let locationId = window.location.pathname.split('/')[1];
+  let locationId = window.location.pathname.split('/')[1];
   // console.log('here is the pathname', locationId);
   ReactDOM.render(
-        React.createElement(SimilarListings, {currentListingId: 5}, null),
+        React.createElement(SimilarListings, {locationId: locationId}, null),
         document.getElementById('similarListing')
       );
 </script>
