@@ -47,8 +47,8 @@ After observing the superior performance of the denormalized schema with respect
 The initial production architecture for the microservice consisted of three AWS t2.micro (1 vCPU, 2.5 GHz, Intel Xeon Family, 1 GiB RAM) instances: a Redis caching server, a MongoDB database server and an App server running my Docker image. A t2.micro instance is less powerful than my local machine so, as expected, the first round of in production Artillery stress tests yielded worse metrics than those obtained from testing locally.
 
 Initial production architecture performance:
-1. RPS: Need to find in notes
-1. Latency: Need to find in notes
+1. RPS: 250.45
+1. Latency: 1190.5ms
 
 One option to improve performance would be to vertically scale and run my three components on machines that are as powerful, or more powerful than my local machine. Vertical scaling on AWS is as easy as selecting a more powerful instance. Instead, I decided to first horizontally scale my App server. As opposed to selecting a more powerful machine with vertical scaling, horizontal scaling is equivalent to adding more machines.
 
@@ -57,8 +57,14 @@ One option to improve performance would be to vertically scale and run my three 
 I chose to horizontally scale my App server with an Elastic Load Balancer and AWS auto scaling. With auto scaling you can specify a particular metric related to the usage and health of your service, such as average CPU utilization, and if a threshold for that metric is exceeded additional containers will be spun up to help assist with the workload. Conversely, if the value for that metric dips below a certain threshold, containers will be wound down. Auto scaling allows you to use only the resouces that your service requires at that time and is especially cost effective compared to a deployment of a static number of instances if the traffic to that service is highly variable. At any given time my service was running between 5 and 15 containers and these bounds were fine-tuned after observering metrics from Amazon Cloudwatch.
 
 Performance after horizontally scaling App server:
-1. RPS: Need to find in notes
-1. Latency: Need to find in notes
+
+| Number of Containers Running | Requests Per Second | Latency (ms) |
+| ---------------------------- | ------------------- | ------------ |
+| 1                            | 250.45              | 1190.5       |                  
+| 5                            | 1171.97             | 388.0        |
+| 10                           | 1972.42             | 169.1        |
+| 15                           | 2308.94             | 143.6        |
+| 20                           | 2357.27             | 123.7        |
 
 ## Database Sharding
 
