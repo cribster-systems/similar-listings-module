@@ -1,8 +1,8 @@
 const fs = require('fs');
 const faker = require('faker');
 const gaussian = require('gaussian');
-const Listing = require('./db.js').Listing;
-const db = require('./db.js').db;
+const Listing = require('./dbAltSingle.js').Listing;
+const db = require('./dbAltSingle.js').db;
 
 const TOTAL_RECORDS = 10000000;
 const BATCH_SIZE = 10000;
@@ -11,7 +11,7 @@ const priceGaussian = gaussian(150, 25);
 const ratingsGaussian = gaussian(3.5, 0.5);
 
 const buildFile = async () => {
-	for (let i = 0; i < TOTAL_BATCHES; i++) {
+	for (let i = 340; i < TOTAL_BATCHES; i++) {
 		console.log(`${i} / ${TOTAL_BATCHES}`);
 		await buildAndAppendBatch(i);
 	}
@@ -45,7 +45,23 @@ const buildAndAppendBatch = (batchNum) => {
 			newObj['bedrooms'] = Math.floor(Math.random() * 5) + 1;
 			let similarListings = [];
 			for (let i = 0; i < 12; i++) {
-				similarListings.push(Math.floor(Math.random() * 10000000));
+				let tempListing = {};
+				tempListing['locationId'] = Math.floor(Math.random() * 10000000);
+				let randomImageNumber = Math.floor(Math.random() * 100) + 1;
+				tempListing['imageUrl'] = `https://s3.us-east-1.amazonaws.com/starkillersystems/images/${randomImageNumber}.jpg`;
+				tempListing['description'] = faker.company.catchPhraseDescriptor();
+				tempListing['title'] = faker.address.streetAddress();
+				tempListing['price'] = Math.floor(priceGaussian.ppf(Math.random()));
+				tempListing['num_reviews'] = Math.floor(Math.random() * 50);
+				tempListing['avg_rating'] = precisionRound(Math.min(ratingsGaussian.ppf(Math.random()), 5), 2);
+				let numberKeywords = Math.floor(Math.random() * 5);
+				let keywords = [];
+				for (let i = 0; i < numberKeywords; i++) {
+					keywords.push(faker.company.catchPhraseAdjective());
+				}
+				tempListing['keywords'] = keywords;
+				tempListing['bedrooms'] = Math.floor(Math.random() * 5) + 1;
+				similarListings.push(tempListing);
 			}
 			newObj['similarListings'] = similarListings;
 			batch.push(newObj);

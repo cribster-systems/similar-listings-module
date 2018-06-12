@@ -1,0 +1,11 @@
+config:
+  target: 'http://similar-listings-final-lb-70799859.us-east-1.elb.amazonaws.com:3333'
+  phases:
+    - duration: 20
+      arrivalRate: 20
+scenarios:
+  - flow:
+    - loop:
+      - get:
+          url: "/rooms/{{ $loopCount }}/similar_listings"
+          count: 10

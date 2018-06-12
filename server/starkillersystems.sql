@@ -5,7 +5,8 @@ CREATE TABLE listings (
     title VARCHAR(200),
     price INT,
     num_reviews INT,
-    avg_rating REAL
+    avg_rating REAL,
+    bedrooms INT
 );
 
 CREATE TABLE keywords (
@@ -18,3 +19,8 @@ CREATE TABLE listings_keywords (
     listingId INT REFERENCES listings(id),
     keywordId INT REFERENCES keywords(id)
 );
+
+CREATE TABLE similar_listings (
+    id INT PRIMARY KEY,
+    similarListingId INT REFERENCES listings(id)
+)
