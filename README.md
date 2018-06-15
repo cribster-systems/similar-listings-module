@@ -30,7 +30,7 @@ scenarios:
     - loop:
       - get:
           url: "/rooms/{{ $loopCount }}/similar_listings"
-          count: 5
+          count: 10
 ```
 Initial results:
 1. Normalized schema: 945 requests per second (rps), median latency of 106.2 milliseconds (ms)
