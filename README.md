@@ -1,6 +1,6 @@
 # Cribster: similar listings service
 
-> Project description
+> Scaled backend of similar listings microservice for housing rental platform, reaching 2,500 RPS after reconfiguring the microservice architecture and datbase schema, deploying dockerized image to AWS and horizontally scaling application layer through implementing AWS autoscaling and deploying MongoDB sharded cluster with replica sets to maintain performance as database size increases and ensure data availability 
 
 ## Related Projects
 
@@ -68,12 +68,6 @@ Performance after horizontally scaling App server:
 
 ## Database Sharding
 
-After horizontally scaling my App server, the performance bottleneck in my service architecture was now my database which was still operating on a single t2.micro instance. At this point I decided to horizontally scale my database by sharding it, or splitting it up across multiple instances. When sharding my database, I created three shards which each contained approximately one-third of the total data of the original database. 
+After horizontally scaling my App server, I decided to deploy a MongoDB sharded cluster with replica sets to maintain performance as database size increases and ensure data availability 
 
 Each shard was deployed as a replica set consisting of three copies so that if the primary failed or was corrupted, one of the two secondary copies could step in and fill the role, thereby maintaining availability to that data. I elected to only allow read operations from the primary in each replica set. Mongo does grant the option to allow read operations from secondary members of a replica set which would increase the rps that the service could handle, but there is a possibility that the data in the secondary copies would not be consistent with the primary due to the asynchronous nature of write operations to secondary members in a replica set. 
-
-At this stage, I also elected to vertically scale by deploying the shards on t2.medium instances rather than t2.micro. Routing of requests to the shards was handled by a single mongos instance (t2.medium) and three config servers were deployed on three separate instances (t2.micro) that stored information about which shard holds a particular piece of data. For my shard key I chose the locationId (listingId) since it also served as my indexing key and it has the lowest possible cardinality since it is unique which will most easily allow the data to be split up amongst all shards.
-
-Performance after sharding database:
-1. RPS: Need to find in notes
-1. Latency: Need to find in notes
