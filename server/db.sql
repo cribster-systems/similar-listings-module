@@ -22,5 +22,6 @@ CREATE TABLE listings_keywords (
 
 CREATE TABLE similar_listings (
     id INT PRIMARY KEY,
+    listingId INT REFERENCES listings(id),
     similarListingId INT REFERENCES listings(id)
 )

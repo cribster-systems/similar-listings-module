@@ -1,0 +1,5 @@
+/node_modules
+/server/data.json
+/server/listings.csv
+/server/keywords.csv
+/server/listings_keywords.csv

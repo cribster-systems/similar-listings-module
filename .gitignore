@@ -1,7 +1,4 @@
 node_modules/
-data.json
 /data
-/server/data.json
-/server/listings.csv
-/server/keywords.csv
-/server/listings_keywords.csv
+/config
+/public
