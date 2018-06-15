@@ -1,6 +1,6 @@
 # Cribster: similar listings service
 
-> Scaled backend of similar listings microservice for housing rental platform, reaching 2,300 RPS after reconfiguring the microservice architecture and datbase schema, deploying dockerized image to AWS and horizontally scaling application layer through implementing AWS autoscaling, and deploying MongoDB sharded cluster with replica sets to maintain performance as database size increases and ensure data availability 
+> Scaled backend of similar listings microservice for housing rental platform, reaching 2,300 RPS after reconfiguring microservice architecture and database schema, adding a Redis caching server, deploying dockerized app image to AWS and horizontally scaling application layer with AWS Elastic Container Service and an Elastic Load Balancer, and deploying MongoDB sharded cluster with replica sets to maintain performance as database size increases and ensure data availability 
 
 ## Related Projects
 
@@ -68,6 +68,6 @@ Performance after horizontally scaling App server:
 
 ## Database Sharding
 
-After horizontally scaling my App server, I decided to deploy a MongoDB sharded cluster with replica sets to maintain performance as database size increases and ensure data availability 
+After horizontally scaling my App server, I decided to deploy a MongoDB sharded cluster with replica sets to maintain performance as database size increases and ensure data availability. 
 
-Each shard was deployed as a replica set consisting of three copies so that if the primary failed or was corrupted, one of the two secondary copies could step in and fill the role, thereby maintaining availability to that data. I elected to only allow read operations from the primary in each replica set. Mongo does grant the option to allow read operations from secondary members of a replica set which would increase the rps that the service could handle, but there is a possibility that the data in the secondary copies would not be consistent with the primary due to the asynchronous nature of write operations to secondary members in a replica set. 
+Each shard was deployed as a replica set consisting of three copies so that if the primary failed or was corrupted, one of the two secondary copies could step in and fill the role, thereby maintaining availability to that data. I elected to only allow read operations from the primary in each replica set. Mongo does grant the option to allow read operations from secondary members of a replica set which would increase the RPS that the service could handle, but there is a possibility that the data in the secondary copies would not be consistent with the primary due to the asynchronous nature of write operations to secondary members in a replica set. 
