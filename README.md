@@ -1,6 +1,6 @@
 # Cribster: similar listings service
 
-> Scaled backend of similar listings microservice for housing rental platform, reaching 2,500 RPS after reconfiguring the microservice architecture and datbase schema, deploying dockerized image to AWS and horizontally scaling application layer through implementing AWS autoscaling, and deploying MongoDB sharded cluster with replica sets to maintain performance as database size increases and ensure data availability 
+> Scaled backend of similar listings microservice for housing rental platform, reaching 2,300 RPS after reconfiguring the microservice architecture and datbase schema, deploying dockerized image to AWS and horizontally scaling application layer through implementing AWS autoscaling, and deploying MongoDB sharded cluster with replica sets to maintain performance as database size increases and ensure data availability 
 
 ## Related Projects
 
