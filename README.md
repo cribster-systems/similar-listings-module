@@ -11,7 +11,14 @@
 # Development
 For this project, I scaled the backend of the similar listings microservice for a housing rental platform after inheriting a legacy codebase. To simulate production scale, 10 million listings were added to the database.
 
-## Microservice Architecture and Database Schema Design
+## Table of Contents
+  
+  - [Microservice Architecture and Database Schema Design](#architecture)
+  - [Deployment on AWS](#deploy)
+  - [Scaling App Server](#scaling)
+  - [Sharding Database](#sharding)
+
+## <a name="architecture"></a>Microservice Architecture and Database Schema Design
 First, any computations to determine similar listings for a given listing were decoupled from the retrieval of similar listings and moved to a separate recommendation service that operates as a batch process.
 
 Next, two different databases and database schemas were tested. For the first schema, the value for the similar listings field in the database is simply an array containing the ids of the twelve similar listings (MongoDB) or there was a separate join table that contained twelve rows for every listing for each of its similar listings (PostgreSQL). The second schema (only MongoDB) denormalized the data. In this schema, the value for the similar listings field was an array of objects that held all relevant data for each of the similar listings. 
@@ -42,7 +49,7 @@ Results after implementing Node cluster:
 
 After observing the superior performance of the denormalized schema with respect to read operations, that schema was implemented and a Docker image was built.
 
-## Deployment on AWS
+## <a name="deploy"></a>Deployment on AWS
 
 The initial production architecture for the microservice consisted of three AWS t2.micro (1 vCPU, 2.5 GHz, Intel Xeon Family, 1 GiB RAM) instances: a Redis caching server, a MongoDB database server and an App server running my Docker image. A t2.micro instance is less powerful than my local machine so, as expected, the first round of in production Artillery stress tests yielded worse metrics than those obtained from testing locally.
 
@@ -52,7 +59,7 @@ Initial production architecture performance:
 
 One option to improve performance would be to vertically scale and run my three components on machines that are as powerful, or more powerful than my local machine. Vertical scaling on AWS is as easy as selecting a more powerful instance. Instead, I decided to first horizontally scale my App server. As opposed to selecting a more powerful machine with vertical scaling, horizontal scaling is equivalent to adding more machines.
 
-## Horizontally Scaling App Server
+## <a name="scaling"></a>Horizontally Scaling App Server
 
 I chose to horizontally scale my App server with an Elastic Load Balancer and AWS auto scaling with Fargate. With auto scaling you can specify a particular metric related to the usage and health of your service, such as average CPU utilization, and if a threshold for that metric is exceeded additional containers will be spun up to help assist with the workload. Conversely, if the value for that metric dips below a certain threshold, containers will be wound down. Auto scaling allows you to use only the resouces that your service requires at that time and is especially cost effective compared to a deployment of a static number of instances if the traffic to that service is highly variable. At any given time my service was running between 5 and 20 containers and these bounds were fine-tuned after observering metrics on New Relic from Artillery tests.
 
@@ -66,7 +73,7 @@ Performance after horizontally scaling App server:
 | 15                           | 2308                | 143.6        |
 | 20                           | 2357                | 123.7        |
 
-## Database Sharding
+## <a name="sharding"></a>Database Sharding
 
 After horizontally scaling my App server, I decided to deploy a MongoDB sharded cluster with replica sets to maintain performance as database size increases and ensure data availability. 
 
